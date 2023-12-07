@@ -1,7 +1,7 @@
 import sys
 import os
 from os import path
-sys.path.append("d:\\c402_LJH\\python\\02 DL_chabot_example")
+sys.path.append(path.dirname( path.dirname( path.abspath(__file__) ) ))
 
 import pymysql
 import openpyxl
@@ -41,7 +41,6 @@ def insert_data(db, xls_row):
     db.commit()
 
 cwd = os.getcwd()
-print(cwd)
 train_file = os.path.join(cwd, 'train_tools', 'qna', 'train_data.xlsx')
 #train_file = './train_data.xlsx'
 db = None
