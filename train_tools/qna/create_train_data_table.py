@@ -1,7 +1,7 @@
 import sys
+import os
 from os import path
-# print(path.dirname( path.dirname( path.abspath(__file__) ) ))
-sys.path.append("d:\\c402_LJH\\python\\02 DL_chatbot\\chatbot")
+sys.path.append("d:\\c402_LJH\\python\\02 DL_chabot_example")
 
 import pymysql
 from config.DatabaseConfig import *

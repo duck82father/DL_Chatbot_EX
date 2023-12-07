@@ -1,8 +1,7 @@
 import sys
 import os
 from os import path
-# print(path.dirname( path.dirname( path.abspath(__file__) ) ))
-sys.path.append("d:\\c402_LJH\\python\\02 DL_chatbot\\chatbot")
+sys.path.append("d:\\c402_LJH\\python\\02 DL_chabot_example")
 
 import pymysql
 import openpyxl
@@ -41,11 +40,10 @@ def insert_data(db, xls_row):
     
     db.commit()
 
-
 cwd = os.getcwd()
 print(cwd)
-train_file = os.path.join(cwd,'chatbot', 'train_tools', 'qna', 'train_data.xlsx')
-# train_file = './train_data.xlsx'
+train_file = os.path.join(cwd, 'train_tools', 'qna', 'train_data.xlsx')
+#train_file = './train_data.xlsx'
 db = None
 try:
     db = pymysql.connect(
