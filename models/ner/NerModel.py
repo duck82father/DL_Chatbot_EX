@@ -30,9 +30,7 @@ class NerModel:
         # 패딩처리
         max_len = 40
         padded_seqs = preprocessing.sequence.pad_sequences(sequences, padding="post", value=0, maxlen=max_len)
-        print(padded_seqs)
         predict = self.model.predict(np.array([padded_seqs[0]]))
-        print(predict)
         predict_class = tf.math.argmax(predict, axis=-1)
         tags = [self.index_to_ner[i] for i in predict_class.numpy()[0]]
         return list(zip(keywords, tags))
