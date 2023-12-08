@@ -1,4 +1,4 @@
-# 단어 키숸스 벡터 크기
+# 단어 시퀀스 벡터 크기
 MAX_SEQ_LEN = 15
 
 def GlobalParams():

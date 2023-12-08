@@ -18,7 +18,7 @@ class NerModel:
         self.p = preprocess
 
 
-    # 개체명 클래스 예측
+    # 개체명 클래스 예측 (전체)
     def predict(self, query):
         # 형태소 분석
         pos = self.p.pos(query)
@@ -38,12 +38,12 @@ class NerModel:
         tags = [self.index_to_ner[i] for i in predict_class.numpy()[0]]
         return list(zip(keywords, tags))
 
-
+    # 답변 검색에 필요한 NER 태그만 정리
     def predict_tags(self, query):
         # 형태소 분석
         pos = self.p.pos(query)
 
-        # 뭉장 내 키워드 추출(불용어 제거)
+        # 문장 내 키워드 추출(불용어 제거)
         keywords = self.p.get_keywords(pos, without_tag=True)
         sequences = [self.p.get_wordidx_sequence(keywords)]
 
