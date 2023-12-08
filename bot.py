@@ -107,7 +107,6 @@ if __name__ == '__main__':
         client = threading.Thread(target=to_client, args=(
             conn,   # 클라이언트 연결 소켓
             addr,   # 클라이언트 연결 주소 정보
-            params  # 스레드 함수 파라미터
         ))
 
         client.start()
