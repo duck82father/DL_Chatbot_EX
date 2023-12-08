@@ -11,7 +11,6 @@ class Preprocess:
         else:
             self.word_index = None
 
-
         # 형태소 분석기 초기화
         self.komoran = Komoran(userdic=userdic)
 
@@ -42,6 +41,7 @@ class Preprocess:
     def get_wordidx_sequence(self, keywords):
         if self.word_index is None:
             return []
+        
         w2i = []
         for word in keywords:
             try:

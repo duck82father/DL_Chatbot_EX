@@ -5,7 +5,7 @@ sys.path.append(path.dirname( path.dirname( path.abspath(__file__) ) ))
 
 from utils.Preprocess import Preprocess
 
-sent = "내일 오전 10시에 탕수육 주문하고 싶어"
+sent = "내일 오전 10시에 짬뽕 주문하고 싶어ㅋㅋ"
 
 # 전처리 객체 생성
 cwd = os.getcwd()
@@ -19,6 +19,10 @@ pos = p.pos(sent)
 ret = p.get_keywords(pos, without_tag=False)
 print(ret)
 
+x = p.get_wordidx_sequence(ret)
+print(x)
+
 # 품사 태그 없이 키워드 출력
 ret = p.get_keywords(pos, without_tag=True)
 print(ret)
+

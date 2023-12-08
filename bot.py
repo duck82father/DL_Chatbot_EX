@@ -32,7 +32,7 @@ ner = NerModel(model_name=nermodel, preprocess=p)
 def to_client(conn, addr, prams):
     db = prams['db']
     try:
-        db.connect()
+        db.Connect()
 
         # 데이터 수신
         read = conn.recv(2048)  # 수신 데이터가 있을 때까지 블로킹
@@ -55,8 +55,7 @@ def to_client(conn, addr, prams):
 
         # 개체명 파악
         ner_predicts = ner.predict(query)
-        ner_tags = ner.predict_tags(ner_predicts)
-
+        ner_tags = ner.predict_tags(query)
         # 답변 검색
         try:
             f = FindAnswer(db)
@@ -107,6 +106,7 @@ if __name__ == '__main__':
         client = threading.Thread(target=to_client, args=(
             conn,   # 클라이언트 연결 소켓
             addr,   # 클라이언트 연결 주소 정보
+            params  # 스레드 함수 파라미터
         ))
 
         client.start()
