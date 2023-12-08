@@ -4,7 +4,7 @@ from keras import preprocessing
 
 # 의도 분류 모델 모듈
 class IntentModel:
-    def __init__ (self, model_name, proprocess):
+    def __init__ (self, model_name, preprocess):
         # 의도 클래스 레이블
         self.labels = {0:"인사", 1:"욕설", 2:"주문", 3:"예약", 4:"기타"}
 
@@ -12,7 +12,7 @@ class IntentModel:
         self.model = load_model(model_name)
 
         # 챗봇 Preprocess 객체
-        self.p = proprocess
+        self.p = preprocess
 
     # 의도 클래스 예측
     def predict_class(self, query):

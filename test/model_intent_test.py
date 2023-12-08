@@ -14,7 +14,7 @@ model = os.path.join(cwd, 'models', 'intent', 'intent_model.h5')
 
 p = Preprocess(word2index_dic=word2index_dic, userdic=userdic)
 
-intent = IntentModel(model_name=model, proprocess=p)
+intent = IntentModel(model_name=model, preprocess=p)
 
 query = "오늘 탕수육 주문 가능한가요?"
 predict = intent.predict_class(query)
